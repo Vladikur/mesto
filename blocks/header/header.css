@@ -6,3 +6,24 @@
   margin-right: auto;
   border-bottom: 1px solid #545454;
 }
+.header__logo {
+  height: 33px;
+  width: 142px;
+}
+@media screen and (max-width: 907px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .header__logo {
+    height: 24px;
+    width: 103px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .header {
+    padding-top: 28px;
+    padding-bottom: 27px;
+  }
+}
