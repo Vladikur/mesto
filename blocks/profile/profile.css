@@ -7,70 +7,6 @@
   justify-content: space-between;
   align-items: center;
 }
-.profile__image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-right: 30px;
-}
-.profile__container {
-  display: flex;
-  align-items: center;
-}
-.profile__container-name {
-  display: flex;
-  align-items: center;
-}
-.profile__name {
-  margin-left: 0;
-  margin-right: 17px;
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #FFFFFF;
-  font-family: Inter, 'Arial', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 43px;
-  line-height: 48px;
-}
-.profile__redact {
-  background: url(../../images/profile__redact.png) center no-repeat;
-  background-size: 10px;
-  height: 24px;
-  width: 24px;
-  margin-top: 8px;
-  box-sizing: border-box;
-  border: 1px solid white;
-}
-.profile__redact:hover {
-  cursor: pointer;
-  opacity: 0.6;
-}
-.profile__description {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 9px;
-  margin-bottom: 0;
-  color: #FFFFFF;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-}
-.profile__add-profile {
-  background: url(../../images/profile__add-profile1.png) center no-repeat;
-  background-size: 22px;
-  height: 50px;
-  width: 150px;
-  border: 2px solid white;
-  border-radius: 2px;
-  box-sizing: border-box;
-}
-.profile__add-profile:hover {
-  cursor: pointer;
-  opacity: 0.6;
-}
 @media screen and (max-width: 907px) {
   .profile {
     padding-left: 27px;
@@ -82,44 +18,11 @@
     padding-top: 42px;
     flex-direction: column;
   }
-  .profile__add-profile {
-    height: 50px;
-    width: 282px;
-  }
 }
 @media screen and (max-width: 560px) {
   .profile {
     padding-left: 0;
     padding-right: 0;
   }
-  .profile__image {
-    margin-right: 0;
-  }
-  .profile__name {
-    margin-left: 28px;
-    margin-top: 26px;
-    margin-right: 12px;
-    font-weight: 500;
-    font-size: 27px;
-    line-height: 33px;
-    text-align: center;
-  }
-  .profile__container {
-    flex-direction: column;
-  }
-  .profile__description {
-    margin-top: 7px;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-  }
-  .profile__redact {
-    margin-top: 27px;
-    height: 18px;
-    width: 18px;
-    background-size: 8px;
-  }
-  .profile__add-profile {
-    margin-top: 33px;
-  }
 }
+

@@ -1,0 +1,21 @@
+.popup__exit {
+  background: url(../../../images/exit.svg) center no-repeat;
+  background-size: 60px;
+  height: 40px;
+  width: 40px;
+  border: none;
+  margin-left: 470px;
+  padding: 0;
+}
+.popup__exit:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+@media screen and (max-width: 600px) {
+  .popup__exit {
+    background-size: 38px;
+    height: 61px;
+    width: 61px;
+    margin-left: 245px;
+  }
+}

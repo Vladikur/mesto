@@ -1,0 +1,7 @@
+.card__description-container {
+  display: flex;
+  justify-content: space-between;
+  height: 79px;
+  padding-left: 21px;
+  padding-right: 18px;
+}
