@@ -9,8 +9,12 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
+  text-overflow: ellipsis;
+  max-width: 350px;
+  overflow: hidden;
+  white-space: nowrap;
 }
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 600px) {
   .profile__name {
     margin-left: 28px;
     margin-top: 26px;
@@ -19,5 +23,6 @@
     font-size: 27px;
     line-height: 33px;
     text-align: center;
+    max-width: 220px;
   }
 }

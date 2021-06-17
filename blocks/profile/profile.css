@@ -13,7 +13,7 @@
     padding-right: 27px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 780px) {
   .profile {
     padding-top: 42px;
     flex-direction: column;

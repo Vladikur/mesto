@@ -1,15 +1,15 @@
-.plases {
+.places {
   max-width: 880px;
   margin-left: auto;
   margin-right: auto;
 }
 @media screen and (max-width: 907px) {
-  .plases {
+  .places {
     max-width: 581px;
   }
 }
-@media screen and (max-width: 720px) {
-  .plases {
+@media screen and (max-width: 780px) {
+  .places {
     max-width: 282px;
   }
 }

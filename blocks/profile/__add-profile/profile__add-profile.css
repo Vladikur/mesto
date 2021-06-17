@@ -1,23 +1,25 @@
 .profile__add-profile {
-  background: url(../../../images/profile__add-profile1.png) center no-repeat;
+  background: url(../../../images/add-profile.svg) center no-repeat;
   background-size: 22px;
   height: 50px;
   width: 150px;
   border: 2px solid white;
   border-radius: 2px;
   box-sizing: border-box;
+  transition: opacity 0.1s linear 0.1s;
 }
 .profile__add-profile:hover {
   cursor: pointer;
   opacity: 0.6;
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 780px) {
   .profile__add-profile {
     height: 50px;
     width: 282px;
+    background-size: 18px;
   }
 }
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 600px) {
   .profile__add-profile {
     margin-top: 33px;
   }

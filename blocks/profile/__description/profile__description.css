@@ -4,17 +4,23 @@
   margin-top: 9px;
   margin-bottom: 0;
   color: #FFFFFF;
-  font-family: Inter;
+  font-family: Inter, 'Arial', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  text-overflow: ellipsis;
+  max-width: 350px;
+  overflow: hidden;
+  white-space: nowrap;
 }
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 600px) {
   .profile__description {
+    margin-left: 14px;
     margin-top: 7px;
     font-size: 14px;
     line-height: 17px;
     text-align: center;
+    max-width: 220px;
   }
 }
