@@ -14,7 +14,6 @@
 }
 @media screen and (max-width: 780px) {
   .profile__add-profile {
-    height: 50px;
     width: 282px;
     background-size: 18px;
   }
