@@ -34,7 +34,7 @@
               <img src="" alt="" class="card__image">
               <div class="card__description-container">
                 <h2 class="card__description"></h2>
-                <button aria-label="Лайк" type="button" class=" card__like"></button>
+                <button aria-label="Лайк" type="button" class="card__like"></button>
               </div>
             </li>
           </template>
@@ -46,17 +46,28 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup popup__redact-profile">
       <div class="popup__container">
-        <button aria-label="Закрыть редактирование профиля" type="button" class="popup__exit"></button>
+        <button aria-label="Закрыть редактирование профиля" type="button" class="popup__exit popup__exit-profile"></button>
         <h2 class="popup__text-redaction">Редактировать профиль</h2>
-        <form action="URL" name="profile" class="popup__form">
+        <form action="URL" name="profile" class="popup__form popup__form-profile">
           <input type="text" placeholder="Имя" name="name" class="popup__input popup__input_change_name">
           <input type="text" placeholder="Описание" name="description" class="popup__input popup__input_change_description">
           <button type="submit" class="popup__save">Сохранить</button>
         </form>
       </div>
+    </section>
 
+    <section class="popup popup__add-cards">
+      <div class="popup__container">
+        <button aria-label="Закрыть редактирование карточек" type="button" class="popup__exit popup__exit-card-add"></button>
+        <h2 class="popup__text-redaction">Новое место</h2>
+        <form action="URL" name="card" class="popup__form popup__form-card">
+          <input type="text" placeholder="Название" name="name" class="popup__input popup__input_change_name-card">
+          <input type="text" placeholder="Ссылка на картинку" name="description" class="popup__input popup__input_change_src">
+          <button type="submit" class="popup__save">Сохранить</button>
+        </form>
+      </div>
     </section>
   </div>
   <script src="./scripts/index.js"></script>
