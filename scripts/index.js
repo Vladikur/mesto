@@ -1,6 +1,6 @@
 
 const popupProfileRedactElement = document.querySelector('.profile__redact');
-const popupElement = document.querySelector('.popup__redact-profile');
+const popupElement = document.querySelector('.popup__redactProfile');
 const popupExitButtonElement = popupElement.querySelector('.popup__exit-profile');
 
 const popupNameInputElement = popupElement.querySelector('.popup__input_change_name');
@@ -65,7 +65,7 @@ const initialCards = [
 const cardTamplate = document.querySelector('.template__card').content;
 const cardsGrid = document.querySelector('.places__cards')
 const popupCardAddElement = document.querySelector('.profile__add-profile');
-const popupCardElement = document.querySelector('.popup__add-cards');
+const popupCardElement = document.querySelector('.popup__addCards');
 const popupNameCardInputElement = popupCardElement.querySelector('.popup__input_change_name-card');
 const popupSrcInputElement = popupCardElement.querySelector('.popup__input_change_src');
 const popupFormCardElement = popupCardElement.querySelector('.popup__form-card');
@@ -93,7 +93,7 @@ function renderCard(name, link) {
   });
 
   // Реализация открытия и закрытия попапа просмотра изображения
-  const imagePopupElement = document.querySelector('.popup__see-photo');
+  const imagePopupElement = document.querySelector('.popup__seePhoto');
   const openImagePopupElement = cardElement.querySelector('.card__image');
   const closeImagePopupElement = imagePopupElement.querySelector('.popup__exit-see-photo');
   const seeImageElement = imagePopupElement.querySelector('.popup__image-see-photo');
