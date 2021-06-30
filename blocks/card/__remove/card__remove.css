@@ -1,0 +1,15 @@
+.card__remove {
+  position: absolute;
+  top: 18px;
+  right: 12px;
+  background: url(../../../images/remove.svg) center no-repeat;
+  height: 19px;
+  width: 23px;
+  border: none;
+  box-sizing: border-box;
+  transition: opacity 0.1s linear 0.1s;
+}
+.card__remove:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

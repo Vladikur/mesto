@@ -1,0 +1,25 @@
+.popup__exit-see-photo {
+  background: url(../../../images/exit.svg) center no-repeat;
+  background-size: 60px;
+  height: 40px;
+  width: 40px;
+  border: none;
+  padding: 0;
+  position: absolute;
+  top: -44px;
+  right: -44px;
+  transition: opacity 0.1s linear 0.1s;
+}
+.popup__exit-see-photo:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+@media screen and (max-width: 600px) {
+  .popup__exit-see-photo {
+    background-size: 38px;
+    height: 61px;
+    width: 61px;
+    top: -56px;
+    right: -20px;
+  }
+}

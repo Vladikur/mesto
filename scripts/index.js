@@ -71,9 +71,6 @@ const popupSrcInputElement = popupCardElement.querySelector('.popup__input_chang
 const popupFormCardElement = popupCardElement.querySelector('.popup__form-card');
 const popupExitCardButtonElement = popupCardElement.querySelector('.popup__exit-card-add');
 
-
-
-
 // Добавление имеющихся карточек на страницу
 function renderCard(name, link) {
   const cardElement = cardTamplate.querySelector('.card').cloneNode(true);
@@ -85,9 +82,35 @@ function renderCard(name, link) {
   // Добавление/убирание лайков
   const likeElement = cardElement.querySelector('.card__like');
   likeElement.addEventListener('click', (evt) => {
-  const evtTarget = evt.target
-  evtTarget.classList.toggle('card__like_active');
+    const evtTarget = evt.target
+    evtTarget.classList.toggle('card__like_active');
   });
+
+  // Удаление карточки
+  const removeElement = cardElement.querySelector('.card__remove');
+  removeElement.addEventListener('click', (evt) => {
+    evt.target.closest('.card').remove();
+  });
+
+  // Реализация открытия и закрытия попапа просмотра изображения
+  const imagePopupElement = document.querySelector('.popup__see-photo');
+  const openImagePopupElement = cardElement.querySelector('.card__image');
+  const closeImagePopupElement = imagePopupElement.querySelector('.popup__exit-see-photo');
+  const seeImageElement = imagePopupElement.querySelector('.popup__image-see-photo');
+  const seeTextElement = imagePopupElement.querySelector('.popup__text-see-photo');
+
+  const openImagePopup = function() {
+    imagePopupElement.classList.add('popup_is-opened');
+    seeTextElement.textContent = name;
+    seeImageElement.src = link;
+  };
+
+  const closeImagePopup = function() {
+    imagePopupElement.classList.remove('popup_is-opened');
+  };
+
+  openImagePopupElement.addEventListener('click', openImagePopup);
+  closeImagePopupElement.addEventListener('click', closeImagePopup);
 
   return cardElement;
 };
@@ -117,7 +140,6 @@ function saveNewCard() {
 
   closeCardPopup();
 }
-
 
 popupCardAddElement.addEventListener('click', openCardPopup);
 popupExitCardButtonElement.addEventListener('click', closeCardPopup);

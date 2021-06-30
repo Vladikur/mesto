@@ -19,6 +19,7 @@
 @import url(../blocks/places/places.css);
 @import url(../blocks/places/__cards/places__cards.css);
 @import url(../blocks/card/card.css);
+@import url(../blocks/card/__remove/card__remove.css);
 @import url(../blocks/card/__description-container/card__description-container.css);
 @import url(../blocks/card/__description/card__description.css);
 @import url(../blocks/card/__image/card__image.css);
@@ -35,3 +36,7 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__save/popup__save.css);
 @import url(../blocks/popup/__text-redaction/popup__text-redaction.css);
+@import url(../blocks/popup/__exit-see-photo/popup__exit-see-photo.css);
+@import url(../blocks/popup/__image-see-photo/popup__image-see-photo.css);
+@import url(../blocks/popup/__photo-container/opup__photo-container.css);
+@import url(../blocks/popup/__text-see-photo/popup__text-see-photo.css);
