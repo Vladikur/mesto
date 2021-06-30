@@ -1,4 +1,5 @@
 .places__cards {
+  min-height: 742px;
   margin-top: 11px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -24,4 +25,5 @@
     max-width: 282px;
   }
 }
+
 

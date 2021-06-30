@@ -103,6 +103,7 @@ function renderCard(name, link) {
     imagePopupElement.classList.add('popup_is-opened');
     seeTextElement.textContent = name;
     seeImageElement.src = link;
+    seeImageElement.alt = name;
   };
 
   const closeImagePopup = function() {
