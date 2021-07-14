@@ -33,9 +33,11 @@ const nameAndDescriptionLikeHTML = function() {
 // Функции открытия и закрытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_is-opened');
+  document.addEventListener('keyup', handleEscUp);
 };
 function closePopup(popup) {
   popup.classList.remove('popup_is-opened');
+  document.removeEventListener('keyup', handleEscUp);
 };
 
 // Функция отправки формы профиля
@@ -84,7 +86,6 @@ initialCards.forEach(function (el) {
   cardsGrid.append(renderCard(el.name, el.link))
 });
 
-
 // Функция добавления новой карточки на страницу
 function submitFormNewCard() {
   const name = inputNamePopupCard.value;
@@ -96,6 +97,32 @@ function submitFormNewCard() {
 
   closePopup(popupCard);
 }
+
+// Функция закрытия попапа на esc
+const handleEscUp = (evt) => {
+  evt.preventDefault();
+  if (evt.which === 27) {
+    const activePopup = document.querySelector('.popup_is-opened');
+    closePopup(activePopup);
+  }
+};
+
+// Функции закрытия попапа по оверлей
+popupProfile.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__exit')) {
+    closePopup(popupProfile);
+  }
+});
+popupCard.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__exit')) {
+    closePopup(popupCard);
+  }
+});
+popupImage.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__exit')) {
+    closePopup(popupImage);
+  }
+});
 
 // Редактирование профиля
 buttonOpenPopupProfile.addEventListener('click', () => {
