@@ -14,6 +14,7 @@ const cardsGrid = document.querySelector('.places__cards');
 const buttonOpenPopupCard = document.querySelector('.profile__add-profile');
 // Переменные для попапа с карточками
 const popupCard = document.querySelector('.popup_type_add-card');
+const buttonElement = popupCard.querySelector('.popup__save');
 const inputNamePopupCard = popupCard.querySelector('.popup__input_change_name-card');
 const inputScrPopupCard = popupCard.querySelector('.popup__input_change_src');
 const formPopupCard = popupCard.querySelector('.popup__form-card');
@@ -23,6 +24,8 @@ const popupImage = document.querySelector('.popup_type_image');
 const buttonClosePopupImage = popupImage.querySelector('.popup__exit-see-photo');
 const imagePopupImage = popupImage.querySelector('.popup__image-see-photo');
 const textPopupImage = popupImage.querySelector('.popup__text-see-photo');
+// Переменные для кнопок
+const ESC_KEYCODE = 27;
 
 // Функция заполнения полей
 const nameAndDescriptionLikeHTML = function() {
@@ -95,13 +98,16 @@ function submitFormNewCard() {
 
   formPopupCard.reset();
 
+  buttonElement.setAttribute("disabled", true);
+  buttonElement.classList.add("popup__save_inactive");
+
   closePopup(popupCard);
 }
 
 // Функция закрытия попапа на esc
 const handleEscUp = (evt) => {
   evt.preventDefault();
-  if (evt.which === 27) {
+  if (evt.which === ESC_KEYCODE) {
     const activePopup = document.querySelector('.popup_is-opened');
     closePopup(activePopup);
   }
