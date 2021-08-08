@@ -8,6 +8,7 @@ export default class FormValidator {
     this._errorClass = validationConfig.errorClass
     this._formElement = formElement
     this._buttonElement = this._formElement.querySelector(this._submitButtonSelector)
+    this._inputList = Array.from( this._formElement.querySelectorAll(this._inputSelector));
   }
 
   _showInputError = (inputElement) => {
@@ -36,8 +37,8 @@ export default class FormValidator {
     }
   };
 
-  _toggleButtonState = (inputList) => {
-    const hasNotValidInput = inputList.some(
+  _toggleButtonState = () => {
+    const hasNotValidInput = this._inputList.some(
       (inputElement) => !inputElement.validity.valid
     );
 
@@ -55,15 +56,13 @@ export default class FormValidator {
       evt.preventDefault();
     });
 
-    const inputList = Array.from( this._formElement.querySelectorAll(this._inputSelector));
-
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement)
-        this._toggleButtonState(inputList);
+        this._toggleButtonState(this._inputList);
       });
     });
-    this._toggleButtonState(inputList);
+    this._toggleButtonState(this._inputList);
   };
 
   enableValidation = () => {
