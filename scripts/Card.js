@@ -2,30 +2,13 @@
 const popupImage = document.querySelector('.popup_type_image');
 const imagePopupImage = popupImage.querySelector('.popup__image-see-photo');
 const textPopupImage = popupImage.querySelector('.popup__text-see-photo');
-// Переменные для кнопок
-const ESC_KEYCODE = 27;
-export const handleEscUp = (evt) => {
-  evt.preventDefault();
-  if (evt.which === ESC_KEYCODE) {
-    const activePopup = document.querySelector('.popup_is-opened');
-    closePopup(activePopup);
-  }
-};
-// Функции открытия и закрытия попапов
-export function openPopup(popup) {
-  popup.classList.add('popup_is-opened');
-  document.addEventListener('keyup', handleEscUp);
-};
-export function closePopup(popup) {
-  popup.classList.remove('popup_is-opened');
-  document.removeEventListener('keyup', handleEscUp);
-};
 
 export default class Card {
-  constructor(data, cardTamplate) {
+  constructor(data, cardTamplate, openPopup) {
     this._name = data.name
     this._link = data.link
     this._cardTamplate = cardTamplate
+    this._openPopup = openPopup
   }
 
   _getTemplate() {
@@ -39,16 +22,7 @@ export default class Card {
     imagePopupImage.src = this._link;
     textPopupImage.textContent = this._name;
     imagePopupImage.alt = this._name;
-    openPopup(popupImage)
-    document.addEventListener('keyup', handleEscUp)
-  }
-
-  _handleClosePopup() {
-    imagePopupImage.src = '';
-    textPopupImage.textContent = '';
-    imagePopupImage.alt = '';
-    closePopup(popupImage)
-    document.removeEventListener('keyup', handleEscUp);
+    this._openPopup(popupImage)
   }
 
   _setEventListeners() {
@@ -65,9 +39,10 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector('.card__image')
 
-    this._element.querySelector('.card__image').src = this._link;
-    this._element.querySelector('.card__image').alt = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
     this._element.querySelector('.card__description').textContent = this._name;
 
     this._setEventListeners()

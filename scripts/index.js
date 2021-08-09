@@ -2,10 +2,9 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 import { initialCards } from './Constants.js';
-import { handleEscUp } from './Card.js';
-import { openPopup } from './Card.js';
-import { closePopup } from './Card.js';
 
+// Переменные для кнопок
+const ESC_KEYCODE = 27;
 // Переменные для добавления карточек
 const cardTamplate = document.querySelector('.template__card').content;
 // Переменные для рекдактирования профиля
@@ -45,11 +44,26 @@ const validationConfig = {
 };
 const formValidatorProfile = new FormValidator(validationConfig, formProfileElement);
 const formValidatorCard = new FormValidator(validationConfig, formCardElement);
-
 // Валидация
 formValidatorProfile.enableValidation()
 formValidatorCard.enableValidation()
-
+// Функциz закрытия попапов на "esc"
+const handleEscUp = (evt) => {
+  evt.preventDefault();
+  if (evt.which === ESC_KEYCODE) {
+    const activePopup = document.querySelector('.popup_is-opened');
+    closePopup(activePopup);
+  }
+};
+// Функции открытия и закрытия попапов
+function openPopup(popup) {
+  popup.classList.add('popup_is-opened');
+  document.addEventListener('keyup', handleEscUp);
+};
+function closePopup(popup) {
+  popup.classList.remove('popup_is-opened');
+  document.removeEventListener('keyup', handleEscUp);
+};
 // Функция заполнения полей
 const nameAndDescriptionLikeHTML = function() {
   inputNamePopupProfile.value = nameProfile.textContent;
@@ -67,7 +81,7 @@ const submitFormProfile = function(evt) {
 // Функция рендера карточек
 function cardRender(array, isFromStart = false) {
   array.forEach((item) => {
-    const card = new Card(item, cardTamplate);
+    const card = new Card(item, cardTamplate, openPopup);
     const cardElement = card.generateCard();
 
     if (isFromStart) {
