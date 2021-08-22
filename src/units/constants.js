@@ -25,8 +25,6 @@ export const initialCards = [
   }
 ];
 
-// Переменные для добавления карточек
-export const cardTamplate = document.querySelector('.template__card').content;
 // Переменные для рекдактирования профиля
 export const buttonOpenPopupProfile = document.querySelector('.profile__redact');
 export const popupProfile = document.querySelector('.popup_type_edit');
@@ -39,14 +37,11 @@ export const formPopupProfile = popupProfile.querySelector('.popup__form-profile
 // Переменные для добавления карточек
 export const cardsGrid = document.querySelector('.places__cards');
 export const buttonOpenPopupCard = document.querySelector('.profile__add-profile');
+// Переменные для попапа с картинками
+export const popupImage = document.querySelector('.popup_type_image');
 // Переменные для попапа с карточками
 export const popupCard = document.querySelector('.popup_type_add-card');
 export const formPopupCard = popupCard.querySelector('.popup__form-card');
-// Переменные для попапа с картинками
-export const popupImage = document.querySelector('.popup_type_image');
-export const imagePopupImage = popupImage.querySelector('.popup__image-see-photo');
-export const textPopupImage = popupImage.querySelector('.popup__text-see-photo');
-export const buttonClosePopupImage = popupImage.querySelector('.popup__exit-see-photo');
 // Переменные для валидации
 export const formProfileElement = document.querySelector('.popup__form-profile');
 export const formCardElement = document.querySelector('.popup__form-card');
@@ -58,3 +53,4 @@ export const validationConfig = {
   inactiveButtonClass: "popup__save_inactive",
   errorClass: 'popup__input_error_active'
 };
+

@@ -14,11 +14,7 @@ export default class UserInfo {
   }
 
   setUserInfo(item) {
-    if (item.name) {
       this._nameProfile.textContent = item.name
-    }
-    if (item.description) {
       this._descriptionProfile.textContent = item.description
-    }
   }
 }

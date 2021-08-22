@@ -1,16 +1,15 @@
-import '../pages/index.css';
+import './index.css';
 
 // Импорт карточек, констант и валидации
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
-import { initialCards } from './Constants.js';
-import Section from './Section.js';
-import PopupWithImage from './PopupWithImage.js';
-import PopupWithForm from './PopupWithForm.js';
-import Popup from './Popup.js';
-import UserInfo from './UserInfo.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import { initialCards } from '../units/constants.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import Popup from '../components/Popup.js';
+import UserInfo from '../components/UserInfo.js';
 import {
-  cardTamplate,
   buttonOpenPopupProfile,
   popupProfile,
   inputNamePopupProfile,
@@ -23,11 +22,11 @@ import {
   popupCard,
   formPopupCard,
   popupImage,
-  buttonClosePopupImage,
   formProfileElement,
   formCardElement,
   validationConfig
-} from './Constants.js';
+} from '../units/constants.js';
+
 
 // Валидация
 const formValidatorProfile = new FormValidator(validationConfig, formProfileElement);
@@ -36,23 +35,26 @@ formValidatorProfile.enableValidation()
 formValidatorCard.enableValidation()
 
 // /Рендер карточек
+function cardRender(item) {
+  const card = new Card(item, '.template__card', handleCardClick);
+  return card.generateCard(item);
+}
+
 const defaultCardRender = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = new Card(item, cardTamplate, handleCardClick);
-    const cardElement = card.generateCard();
-    defaultCardRender.addItem(cardElement);
+    defaultCardRender.addItem(cardRender(item));
   }
 }, cardsGrid);
 
 defaultCardRender.renderItems()
 
 // Попап с картинками
+const popupPlaceView = new PopupWithImage(popupImage)
+
 function handleCardClick(name, link) {
-  const popupPlaceView = new PopupWithImage(name, link, popupImage)
   popupPlaceView.open(name, link)
 };
-const popupPlace = new Popup(popupImage)
 
 // Попап с новой карточкой
 function createCard(item) {
@@ -62,22 +64,16 @@ function createCard(item) {
       link: item.url
     }
   ]
-  const newCardRender = new Section({
-    items: newcard,
-    renderer: (item) => {
-      const card = new Card(item, cardTamplate, handleCardClick);
-      const cardElement = card.generateCard();
-      newCardRender.addItem(cardElement, true);
-    }
-  }, cardsGrid);
-  newCardRender.renderItems()
+  newcard.forEach(item => {
+    cardsGrid.prepend(cardRender(item));
+  });
 }
 
-const CardElement = new PopupWithForm(popupCard, (item) => {
+const cardElement = new PopupWithForm(popupCard, (item) => {
   createCard(item)
-  CardElement.close()
+  cardElement.close()
 }, formPopupCard);
-CardElement.setEventListeners(buttonClosePopupImage)
+cardElement.setEventListeners()
 
 // Попап с профилем
 const nameAndDescriptionLikeHTML = function() {
@@ -90,12 +86,12 @@ const ProfileElement = new PopupWithForm(popupProfile, (item) => {
   Profileinfo.setUserInfo(item)
   ProfileElement.close()
 }, formPopupProfile);
-ProfileElement.setEventListeners(buttonClosePopupImage)
+ProfileElement.setEventListeners()
 
 // Слушатели открытия попапов
-popupPlace.setEventListeners(buttonClosePopupImage)
+popupPlaceView.setEventListeners()
 buttonOpenPopupProfile.addEventListener('click', () => {
   nameAndDescriptionLikeHTML();
   ProfileElement.open();
 });
-buttonOpenPopupCard.addEventListener('click', () => CardElement.open());
+buttonOpenPopupCard.addEventListener('click', () => cardElement.open());

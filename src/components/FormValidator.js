@@ -54,6 +54,8 @@ export default class FormValidator {
   _setEventListeners = () => {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      this._buttonElement.setAttribute("disabled", true);
+      this._buttonElement.classList.add(this._inactiveButtonClass);
     });
 
     this._inputList.forEach((inputElement) => {
