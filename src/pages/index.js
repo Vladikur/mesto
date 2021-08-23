@@ -7,7 +7,6 @@ import { initialCards } from '../units/constants.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
-import Popup from '../components/Popup.js';
 import UserInfo from '../components/UserInfo.js';
 import {
   buttonOpenPopupProfile,
@@ -77,13 +76,13 @@ cardElement.setEventListeners()
 
 // Попап с профилем
 const nameAndDescriptionLikeHTML = function() {
-  inputNamePopupProfile.value = Profileinfo.getUserInfo().name;
-  inputDescriptionPopupProfile.value = Profileinfo.getUserInfo().description;
+  inputNamePopupProfile.value = profileinfo.getUserInfo().name;
+  inputDescriptionPopupProfile.value = profileinfo.getUserInfo().description;
 };
-const Profileinfo = new UserInfo(nameProfile, descriptionProfile)
+const profileinfo = new UserInfo(nameProfile, descriptionProfile)
 
 const ProfileElement = new PopupWithForm(popupProfile, (item) => {
-  Profileinfo.setUserInfo(item)
+  profileinfo.setUserInfo(item)
   ProfileElement.close()
 }, formPopupProfile);
 ProfileElement.setEventListeners()
