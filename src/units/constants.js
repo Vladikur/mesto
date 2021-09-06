@@ -1,30 +1,3 @@
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 // Переменные для рекдактирования профиля
 export const buttonOpenPopupProfile = document.querySelector('.profile__redact');
 export const popupProfile = document.querySelector('.popup_type_edit');
@@ -34,6 +7,7 @@ export const inputDescriptionPopupProfile = popupProfile.querySelector('.popup__
 export const nameProfile = document.querySelector('.profile__name');
 export const descriptionProfile = document.querySelector('.profile__description');
 export const formPopupProfile = popupProfile.querySelector('.popup__form-profile');
+export const fotoProfile = document.querySelector('.profile__image');
 // Переменные для добавления карточек
 export const cardsGrid = document.querySelector('.places__cards');
 export const buttonOpenPopupCard = document.querySelector('.profile__add-profile');
@@ -53,4 +27,14 @@ export const validationConfig = {
   inactiveButtonClass: "popup__save_inactive",
   errorClass: 'popup__input_error_active'
 };
+// Переменные для попапа с удалением
+export const popupDelete = document.querySelector('.popup_type_delete-card');
+export const formPopupDelete = popupDelete.querySelector('.popup__form-remove');
+// Переменные для попапа с аватаром
+export const popupAvatar = document.querySelector('.popup_type_add-avatar');
+export const formPopupAvatar = popupAvatar.querySelector('.popup__form-avatar');
+export const buttonAvatar = document.querySelector('.profile__image');
+export const buttonSaveProfile = popupProfile.querySelector('.popup__save_type_profile');
+export const buttonSaveCard = popupCard.querySelector('.popup__save_type_card');
+export const buttonSaveAvatar = popupAvatar.querySelector('.popup__save_type_avatar');
 

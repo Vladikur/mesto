@@ -14,7 +14,10 @@
     <main class="content">
       <section class="profile">
         <div class="profile__container">
-          <img src="<%=require('./images/Profile-image.jpg')%>" alt="Фотография профиля" class="profile__image">
+          <div class="profile__image-container">
+            <button aria-label="Изменение имени и описания профиля" type="button" class="profile__image-redact"></button>
+            <img src="<%=require('./images/Profile-image.jpg')%>" alt="Фотография профиля" class="profile__image">
+          </div>
           <div class="profile__container-info">
             <div class="profile__container-name">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -36,7 +39,10 @@
               </div>
               <div class="card__description-container">
                 <h2 class="card__description"></h2>
-                <button aria-label="Лайк" type="button" class="card__like"></button>
+                <div class="card__button-container">
+                  <button aria-label="Лайк" type="button" class="card__like"></button>
+                  <p class="card__likes">0</p>
+                </div>
               </div>
             </li>
           </template>
@@ -61,7 +67,7 @@
             <input id="sing-in-description" type="text" placeholder="Описание" name="description" class="popup__input popup__input_change_description" required minlength="2" maxlength="200">
             <span class="popup__input-error" id="sing-in-description-error"></span>
           </section>
-          <button type="submit" class="popup__save">Сохранить</button>
+          <button type="submit" class="popup__save popup__save_type_profile">Сохранить</button>
         </form>
       </div>
     </section>
@@ -79,7 +85,7 @@
             <input id="sing-in-url" type="url" placeholder="Ссылка на картинку" name="url" class="popup__input popup__input_change_src" required>
             <span class="popup__input-error" id="sing-in-url-error"></span>
           </section>
-          <button type="submit" class="popup__save">Создать</button>
+          <button type="submit" class="popup__save popup__save_type_card">Создать</button>
         </form>
       </div>
     </section>
@@ -89,6 +95,30 @@
         <button aria-label="Закрыть просмотр фото" type="button" class="popup__exit popup__exit-see-photo"></button>
         <img src=" " alt=" " class="popup__image-see-photo">
         <h2 class="popup__text-see-photo"></h2>
+      </div>
+    </section>
+
+    <section class="popup popup_type_delete-card">
+      <div class="popup__delete-container">
+        <button aria-label="Закрыть удаление карточки" type="button" class="popup__exit popup__exit-delete-card"></button>
+        <h2 class="popup__text-redaction">Вы уверены?</h2>
+        <form action="URL" name="remove" class="popup__form popup__form-remove" novalidate>
+          <button type="submit" class="popup__delete">Да</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup_type_add-avatar">
+      <div class="popup__avatar-container">
+        <button aria-label="Закрыть редактирование карточек" type="button" class="popup__exit popup__exit-avatar-redact"></button>
+        <h2 class="popup__text-redaction">Обновить аватар</h2>
+        <form action="URL" name="card" class="popup__form popup__form-avatar" novalidate>
+          <section class="popup__input-element">
+            <input id="avatar-url" type="url" placeholder="Ссылка на картинку" name="avatar" class="popup__input popup__input_change_avatar" required>
+            <span class="popup__input-error" id="avatar-url-error"></span>
+          </section>
+          <button type="submit" class="popup__save popup__save_type_avatar">Сохранить</button>
+        </form>
       </div>
     </section>
   </div>

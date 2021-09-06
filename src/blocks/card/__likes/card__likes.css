@@ -1,0 +1,12 @@
+.card__likes {
+  margin-left: 32px;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Inter, 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+}

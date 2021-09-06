@@ -1,0 +1,14 @@
+.profile__image-redact {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: opacity 0.1s linear 0.1s;
+  background: url(../../../images/add-image-profile.svg) center no-repeat;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
