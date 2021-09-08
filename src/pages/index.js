@@ -1,3 +1,5 @@
+// Если это ошибка Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'., то я не знаю как ее исправить. Мне говорят что ее не исправить. Других ошибок уменя не возникает. Помогите, пожалуйста.
+
 import './index.css';
 
 // Импорт карточек, констант и валидации
@@ -159,10 +161,8 @@ AvatarElement.setEventListeners()
 const renderLoading = function(isLoading, button) {
   if (isLoading) {
     button.textContent = 'Сохранение...'
-    console.log('Сохранение...')
   } else {
     button.textContent = 'Сохранить'
-    console.log('Сохранить')
   }
 }
 
