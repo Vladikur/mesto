@@ -4,6 +4,7 @@ export default class UserInfo {
    this._userDescription = userDescription;
    this._nameProfile = document.querySelector('.profile__name');
    this._descriptionProfile = document.querySelector('.profile__description');
+   this._avatarProfile = document.querySelector('.profile__image');
   }
 
   getUserInfo() {
@@ -14,7 +15,15 @@ export default class UserInfo {
   }
 
   setUserInfo(item) {
+    if (item.name) {
       this._nameProfile.textContent = item.name
+    }
+    if (item.description) {
       this._descriptionProfile.textContent = item.description
+    }
+  }
+
+  setUserAvatar(data) {
+    this._avatarProfile.src = data.avatar
   }
 }

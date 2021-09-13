@@ -1,51 +1,41 @@
-import {
-  buttonSaveProfile,
-  buttonSaveCard,
-  buttonSaveAvatar
-} from '../units/constants.js';
-
 export default class Api {
   constructor(config) {
     this.url = config.url;
+    this.authorization = '947e1a41-7fdd-411e-be19-4441fbe7ac08'
+  }
+
+  _getResponseData(res) {
+    if (!res.ok) {
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    return res.json();
   }
 
   getProfileData() {
-    return fetch(this.url, {
+    return fetch(`${this.url}/users/me`, {
      headers: {
-       authorization: '947e1a41-7fdd-411e-be19-4441fbe7ac08',
+       authorization: this.authorization,
        method: 'GET',
      }
    })
-   .then(res => {
-     if (!res.ok) {
-       return Promise.reject("Что-то сломалось")
-     }
-     return res.json()
-   })
-   .catch(err => console.log(err))
+   .then(res => this._getResponseData(res))
  }
 
   getInitialCards() {
-    return fetch(this.url, {
+    return fetch(`${this.url}/cards`, {
       headers: {
-        authorization: '947e1a41-7fdd-411e-be19-4441fbe7ac08',
+        authorization: this.authorization,
         method: 'GET',
       }
     })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject("Что-то сломалось")
-      }
-      return res.json()
-    })
-    .catch(err => console.log(err))
+    .then(res => this._getResponseData(res))
   }
 
-  profileRedact(data, renderLoading) {
-    return fetch(this.url, {
+  profileRedact(data) {
+    return fetch(`${this.url}/users/me`, {
       method: 'PATCH',
       headers: {
-        authorization: '947e1a41-7fdd-411e-be19-4441fbe7ac08',
+        authorization: this.authorization,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -53,23 +43,14 @@ export default class Api {
         about: data.about
       })
     })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject("Что-то сломалось")
-      }
-      return res.json()
-    })
-    .catch(err => console.log(err))
-    .finally(() => {
-      renderLoading(false, buttonSaveProfile)
-    });
+    .then(res => this._getResponseData(res))
   }
 
-  cardCreate(data, renderLoading) {
-    return fetch(this.url, {
+  cardCreate(data) {
+    return fetch(`${this.url}/cards`, {
       method: 'POST',
       headers: {
-        authorization: '947e1a41-7fdd-411e-be19-4441fbe7ac08',
+        authorization: this.authorization,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -77,87 +58,51 @@ export default class Api {
         link: data.link
       })
     })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject("Что-то сломалось")
-      }
-      return res.json()
-    })
-    .catch(err => console.log(err))
-    .finally(() => {
-      renderLoading(false, buttonSaveCard)
-    });
+    .then(res => this._getResponseData(res))
   }
 
   putLikes(id) {
-    return fetch(`${this.url}/likes/${id}`, {
+    return fetch(`${this.url}/cards/likes/${id}`, {
       method: 'PUT',
       headers: {
-        authorization: '947e1a41-7fdd-411e-be19-4441fbe7ac08',
+        authorization: this.authorization,
       },
     })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject("Что-то сломалось")
-      }
-      return res.json()
-    })
-    .catch(err => console.log(err))
+    .then(res => this._getResponseData(res))
   }
 
   deleteLikes(id) {
-    return fetch(`${this.url}/likes/${id}`, {
+    return fetch(`${this.url}/cards/likes/${id}`, {
       method: 'DELETE',
       headers: {
-        authorization: '947e1a41-7fdd-411e-be19-4441fbe7ac08',
+        authorization: this.authorization,
       },
     })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject("Что-то сломалось")
-      }
-      return res.json()
-    })
-    .catch(err => console.log(err))
+    .then(res => this._getResponseData(res))
   }
 
   deleteCard(id) {
-    return fetch(`${this.url}/${id}`, {
+    return fetch(`${this.url}/cards/${id}`, {
       method: 'DELETE',
       headers: {
-        authorization: '947e1a41-7fdd-411e-be19-4441fbe7ac08',
+        authorization: this.authorization,
       },
     })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject("Что-то сломалось")
-      }
-      return res.json()
-    })
-    .catch(err => console.log(err))
+    .then(res => this._getResponseData(res))
   }
 
-  avatarRedact(data, renderLoading) {
-    return fetch(this.url, {
+  avatarRedact(data) {
+    return fetch(`${this.url}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
-        authorization: '947e1a41-7fdd-411e-be19-4441fbe7ac08',
+        authorization: this.authorization,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         avatar: data,
       })
     })
-    .then(res => {
-      if (!res.ok) {
-        return Promise.reject("Что-то сломалось")
-      }
-      return res.json()
-    })
-    .catch(err => console.log(err))
-    .finally(() => {
-      renderLoading(false, buttonSaveAvatar)
-    });
+    .then(res => this._getResponseData(res))
   }
 
 }

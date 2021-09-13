@@ -7,7 +7,7 @@ export const inputDescriptionPopupProfile = popupProfile.querySelector('.popup__
 export const nameProfile = document.querySelector('.profile__name');
 export const descriptionProfile = document.querySelector('.profile__description');
 export const formPopupProfile = popupProfile.querySelector('.popup__form-profile');
-export const fotoProfile = document.querySelector('.profile__image');
+export const idProfile = {}
 // Переменные для добавления карточек
 export const cardsGrid = document.querySelector('.places__cards');
 export const buttonOpenPopupCard = document.querySelector('.profile__add-profile');
