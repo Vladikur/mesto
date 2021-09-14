@@ -47,14 +47,11 @@ export default class Card {
     });
   }
 
-  _myLike(item) {
-    return item._id === "92020d4fdf85f9612685b2c0";
-    // при попытке подставить в это сравнение this._idProfile возникает ошибка TypeError: Cannot read property '_idProfile' of undefined. При этом в _basketVisibility() переменная this._idProfile работает. Не могу разобраться как решить эту проблему.
-  }
-
   _likesVisibility() {
     this._element.querySelector('.card__likes').textContent = this._likes.length;
-    this._likePresent = this._likes.some(this._myLike);
+    this._likePresent = this._likes.some((item) => {
+      return item._id === this._idProfile;
+    });
     if (this._likePresent) {
       this._element.querySelector('.card__like').classList.add('card__like_active');
     }

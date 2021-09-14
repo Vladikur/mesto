@@ -1,7 +1,7 @@
 export default class Api {
   constructor(config) {
     this.url = config.url;
-    this.authorization = '947e1a41-7fdd-411e-be19-4441fbe7ac08'
+    this.authorization = config.auth;
   }
 
   _getResponseData(res) {
